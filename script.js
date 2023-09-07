@@ -2,12 +2,12 @@
 cursortracker();
 function cursortracker() {
   window.addEventListener("mousemove", function (dets) {
-    document.querySelector(
-      ".cursor-tracker"
-    ).style.transform = `translate(${dets.clientX}px, ${dets.clientY}px)`;
+    // document.querySelector(
+    //   ".cursor-tracker"
+    // ).style.transform = `translate(${dets.clientX}px, ${dets.clientY}px)`;
     document.querySelector(
       ".cursor"
-    ).style.transform = `translate(${dets.clientX}px, ${dets.clientY}px)`;
+    ).style.transform = `translate(${dets.clientX-5}px, ${dets.clientY-4}px)`;
   });
 }
 
@@ -45,7 +45,7 @@ gsap.from(".intro-heading-1", {
   scrollTrigger: {
     trigger: ".intro-heading-1",
     scroller: ".main",
-    markers: true,
+    // markers: true,
     scrub: 2,
   },
 });
@@ -55,7 +55,7 @@ gsap.from(".intro-heading-2", {
   scrollTrigger: {
     trigger: ".intro-heading-2",
     scroller: ".main",
-    markers: true,
+    // markers: true,
     scrub: 2,
   },
 });

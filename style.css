@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Raleway&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 
 * {
     margin: 0;
@@ -7,159 +7,407 @@
 }
 
 :root {
-    font-family: "raleway";
-    --text-color: #f9f7f3;
-    cursor: none;
+    font-family: "Krona One";
+    /* cursor: none; */
+
+
+    /* color palet */
+    --one: #dee2e6;
+    --two: #0d1b2a;
+    --three: #2D6A4F;
+    --four: #ced4da; 
 }
 
-html {
-    background:linear-gradient(200deg, #ffffff1a,#000000e6 80% ),url(assets/caleb-rogers-AtgRjx271ks-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
+/******************* Utility Classes start *******************************************************************/
+
+.comment {
+    color : var(--three)
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+.align-right {
+    text-align: right;
 }
 
-.main {
-    width: 100%;
-}
-
+/******************* Utility Classes end *******************************************************************/
 /******************* cursor tracker start *******************************************************************/
 
 .cursor {
     position: absolute;
     width: 15px;
     height: 15px;
-    border: 3px solid var(--text-color);
-    background-color: #fff;
+    background-color: var(--two);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9;
-}
-.cursor-tracker {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 3px solid var(--text-color);
-    border-radius: 50%;
-    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
-    pointer-events: none;
-    /* mix-blend-mode: difference; */
-    left: -27px;
-    top: -28px;
-    z-index: 9;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .4s;
 }
 
 /******************* cursor tracker end*******************************************************************/
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--one);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
 /******************* page 1 start *******************************************************************/
 
-.page1 {    
-    width: 100%;
+.page-1 {
+    padding: 2vw 3vw;
+    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 15rem;
 }
 
+/* nav start */
 nav {
-    padding: 0vw 4vw;
-    color: var(--text-color);
-    width: 100%;
-    height: 100px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    opacity: .8;
-    background: linear-gradient(to bottom, #000000, #ffffff00);
+    align-items: center;
+    /* font-size: 1rem; */
 }
 
-nav div{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
+/* nav end */
+/* hero start */
 .hero-sec {
-    padding: 0vw 4vw;
-    padding-block: 2rem;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.heading-1, .heading-2 {
-    font-size: 15vw;
-    font-family: "ADLaM Display";
-    font-weight: 300;
+.hero-div {
+    border-radius: 40px;
+    background-color: var(--four);
+    padding: .5rem;
+    overflow: hidden;
+    box-shadow: 0px 5px 5px var(--two) inset;
+}
+
+.hero-div h3{
+    font-size: 10rem;
+    text-align: center;
     color: transparent;
-    -webkit-text-stroke: .3vw var(--text-color);
-    opacity: .9;
-    user-select: none;
-    filter: drop-shadow(5px 5px 4px #fff);
+    -webkit-text-stroke: 1px var(--three);
 }
 
-.heading-2 {
+.new-human, .new-human-2 {
+    line-height: .9;
+    font-size: 5rem;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--two);
+}
+
+.new-human-2 {
     text-align: right;
-    right: 0;
 }
 
+.title {
+    color: var(--two);
+    -webkit-text-stroke: 0px var(--two);
+    font-size: 10rem;
+}
+/* hero end */
+/* hero footer start */
 
-.hero-sec i {
-    position: absolute;
-    font-size: 15vw;
-    opacity: .9;
-    bottom: 10%;
-    left: 4%;
-    color: transparent;
-    -webkit-text-stroke: .3vw var(--text-color);
-    animation: bounce 1.5s infinite cubic-bezier(.72,.72,0,1);
-    filter: drop-shadow(5px 5px 4px #fff);
+.page-1-footer {
+    display: flex;
+    justify-content: space-between;
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateY(0%);
-    }
-    40% {
-        transform: translateY(-15%);
-    }
-    60% {
-        transform: translateY(0%);
-    }
-    80% {
-        transform: translateY(-10%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-
+/* hero footer end */
 /******************* page 1 end *******************************************************************/
 /******************* page 2 start *******************************************************************/
 
-.page2 {
-    width: 100%;
-    height: 100vh;
+.page-2 {
+
 }
 
-.intro-heading {
-    font-size: 12vw;
-    transform: translateX(-30%);
-    white-space: nowrap;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-.intro-heading-2 {
-    transform:translateX(30%);
-}
-
-.intro-heading-container {
+.page-2-heading {
+    padding: 2vw 3vw;
     display: flex;
     flex-direction: column;
-    gap: 5vw;
+    gap: 2rem;
 }
+
+.project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 2rem 4rem;
+}
+
+.project {
+    padding: 2rem 2vw;
+    width: 100%;
+    background-color: var(--four);
+    box-shadow: 0px 5px 5px var(--two) inset;
+}
+
+.project h3 {
+    padding: 1.5rem;
+}
+
+/******************* page 2 end *******************************************************************/
+/******************* page 3 start *******************************************************************/
+
+.page-3 {
+    padding: 2vw 3vw;
+}
+
+.page-3-heading {
+    padding-block: 3rem;
+}
+
+.about-sec {
+    width: 100%;
+    height: 80vh;
+    margin-block: 1rem;
+    background-color: var(--four);
+    border-radius: 40px;
+    box-shadow: 0px 5px 5px var(--two) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.about-sec > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.img-container {
+    margin-block: 5rem;
+    width: 25rem;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.img-container .img {
+    background-color: var(--two);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--four);
+}
+
+.about-desc {
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.about-desc div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 1.5rem;
+    line-height: 1.2;
+}
+
+.about-desc p {
+    position: relative;
+}
+
+.about-desc p::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: -25px;
+    top: 5px;
+    border-radius: 50%;
+    background-color: var(--three);
+}
+
+.download-cv {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: .7rem 1.5rem;
+    border-radius: 40px;
+    color: var(--one);
+    background-color: var(--two);
+}
+
+/******************* page 3 end *******************************************************************/
+/******************* page 4 start *******************************************************************/
+
+.page-4 {
+    
+}
+
+.page-4-heading {
+    padding: 2vw 3vw;
+}
+
+.skills-container {
+    width: 100%;
+    padding: 2vw 3vw;
+    padding-bottom: 4rem;
+    display: flex;
+    gap: 4rem;
+}
+
+.skills-sec {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skills-sec div {
+    box-shadow: 0px 5px 5px var(--two) inset;
+    background-color: var(--four);
+    border-radius: 40px;
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+    color: var(--three);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-sec {
+    box-shadow: 0px 5px 5px var(--two) inset;
+    width: 40%;
+    border-radius: 40px;
+    background-color: var(--four);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-sec div{
+    box-shadow: 0px 5px 5px var(--two) inset;
+    width: 90%;
+    height: 90%;
+    border-radius: 40px;
+    background-color: var(--one);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/******************* page 4 end *******************************************************************/
+/******************* page 5 start *******************************************************************/
+
+.page-5-container {
+    padding: 2vw 3vw;
+}
+
+.input-container {
+    box-shadow: 0px 5px 5px var(--two) inset;
+    padding: 4vw 6vw;
+    background-color: var(--four);
+    display: flex;
+    gap: 6vw;
+    border-radius: 40px;
+}
+
+.input-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3rem;
+}
+
+.input-container div input,
+.input-container textarea {
+    box-shadow: 0px 5px 5px var(--two) inset;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 40px;
+    color: #2D6A4F;
+    background-color: var(--one);
+}
+
+.input-container > * ,
+.input-container input {
+    flex: 1;
+    width: 100%;
+}
+
+.input-container div button {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    border-radius: 40px;
+    background-color: #0d1b2a;
+    color: var(--one);
+}
+
+.input-container textarea::placeholder,
+.input-container div input::placeholder { 
+    color: var(--three);
+    font-weight: 700;
+}
+
+.input-container textarea::-ms-input-placeholder,
+.input-container div input::-ms-input-placeholder {
+    color: var(--three);
+    font-weight: 700;
+}
+
+/******************* page 5 end *******************************************************************/
+/******************* page 6 start *******************************************************************/
+
+.page-6 {
+    padding: 2vw 3vw;
+    display: flex;
+}
+
+.page-6-heading {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.links-sec {
+    display: flex;
+    gap: 2rem;
+    /* font-size: 1.5rem; */
+}
+
+.links-sec div{
+    box-shadow: 0px 5px 5px var(--two) inset;
+    background-color: var(--four);
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.links-sec div a {
+    color: var(--two);
+}
+
+.page-6-msg {
+    line-height: 1.4;
+}
+
+/******************* page 6 end *******************************************************************/
+/******************* footer start *******************************************************************/
+
+footer {
+    padding: 2vw 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+}
+
+/******************* footer end *******************************************************************/
