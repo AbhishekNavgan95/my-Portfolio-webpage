@@ -1,414 +1,756 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  all: unset;
 }
 
 :root {
-    font-family: "Krona One";
-    /* cursor: none; */
+  font-family: "Krona One";
+  /* cursor: none; */
 
+  /* color palet */
+  --one: #dee2e6;
+  --two: #0d1b2a;
+  --three: #2d6a4f;
+  --four: #d0d0d073;
+  --five: #d0d0d0;
 
-    /* color palet */
-    --one: #dee2e6;
-    --two: #0d1b2a;
-    --three: #2D6A4F;
-    --four: #ced4da; 
+  /* font size */
+  --min-10-2: max(7.5vw, 2.2rem);
+  --default-font: max(1.1vw, 0.8rem);
+
+  /* width */
+  --mobile: 480px;
+  --tablets: 768px;
+  --laptop: 1024px;
+  --desktop: 1200px;
+
+  /* shadow */
+  --shadow: 0px 5px 5px var(--two) inset;
+  --shadow-outer: 0px 5px 5px var(--two);
+  --shadow-outer-2: 0px 5px 5px var(--four);
+
+  /* transition */
+  --transform: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  --color: color 0.2s linear, background-color 0.2s linear;
+
+  /* cursor: none; */
 }
 
 /******************* Utility Classes start *******************************************************************/
 
 .comment {
-    color : var(--three)
+  color: var(--three) !important;
 }
 
 .align-right {
-    text-align: right;
+  text-align: right;
 }
 
 /******************* Utility Classes end *******************************************************************/
 /******************* cursor tracker start *******************************************************************/
 
 .cursor {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: var(--two);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9;
-    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .4s;
+  position: absolute;
+  background-color: var(--three);
+  width: 15px;
+  height: 15px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9;
+  transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+  display: none;
+}
+
+.cursor-tracker-2 {
+  position: absolute;
+  border: 1px solid var(--three);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  transition: all cubic-bezier(0.215, 0.61, 0.355, 1.5) 0.7s;
+  display: none;
+  /* transition: all cubic-bezier( 0.19, 0.37, 0.36, 1.5 ) 0.7s; */
 }
 
 /******************* cursor tracker end*******************************************************************/
 
+.bg {
+  background-color: var(--one);
+  overflow: hidden;
+}
+
+.bg-elem-1,
+.bg-elem-2,
+.bg-elem-3,
+.bg-elem-4 {
+  position: absolute;
+  background-color: var(--two);
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(180px);
+  transition: all ease-in-out 2s;
+  display: none;
+}
+
+.graphic {
+  position: absolute;
+  z-index: 2;
+  left: 0%;
+  bottom: 25%;
+  rotate: -60deg;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
 .main {
-    position: fixed;
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--one);
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    user-select: none;
+  position: relative;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  background-color: #68686868;
+  user-select: none;
 }
 
 /******************* page 1 start *******************************************************************/
 
 .page-1 {
-    padding: 2vw 3vw;
-    height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  padding: 1rem 3vw;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 }
 
 /* nav start */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* font-size: 1rem; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* nav end */
 /* hero start */
 .hero-sec {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
 }
 
 .hero-div {
-    border-radius: 40px;
-    background-color: var(--four);
-    padding: .5rem;
-    overflow: hidden;
-    box-shadow: 0px 5px 5px var(--two) inset;
+  border-radius: 40px;
+  background-color: var(--two);
+  padding: 0.5rem 5vw;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-div h3{
-    font-size: 10rem;
-    text-align: center;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--three);
+.hero-div::after {
+  content: "";
+  z-index: 1;
+  inset: 0;
+  background-color: var(--two);
+  transform: scaleY(0);
+  transition: var(--transform);
+  transform-origin: bottom;
+  position: absolute;
+  border-radius: 40px;
 }
 
-.new-human, .new-human-2 {
-    line-height: .9;
-    font-size: 5rem;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--two);
+.hero-div:hover::after {
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.hero-div::before {
+  content: "";
+  z-index: 1;
+  inset: 0;
+  background-color: var(--two);
+  transform: scaleY(0);
+  transition: var(--transform);
+  transform-origin: top;
+  position: absolute;
+  border-radius: 40px;
+}
+
+.hero-div:hover::before {
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+.hero-div h3 {
+  position: relative;
+  z-index: 3;
+  padding-block: 1rem;
+  font-size: var(--min-10-2);
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--three);
+}
+
+.main-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new-human,
+.new-human-2 {
+  line-height: 0.9;
+  font-size: max(5vw, 1rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--two);
+  transition: all 0.3s ease-in-out;
+}
+
+.new-human:hover,
+.new-human-2:hover {
+  color: var(--two);
 }
 
 .new-human-2 {
-    text-align: right;
+  align-self: end;
 }
 
 .title {
-    color: var(--two);
-    -webkit-text-stroke: 0px var(--two);
-    font-size: 10rem;
+  color: var(--two);
+  -webkit-text-stroke: 0px var(--two);
+  font-size: var(--min-10-2);
 }
+
 /* hero end */
 /* hero footer start */
 
 .page-1-footer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 1rem;
 }
 
 /* hero footer end */
 /******************* page 1 end *******************************************************************/
 /******************* page 2 start *******************************************************************/
 
-.page-2 {
-
-}
-
 .page-2-heading {
-    padding: 2vw 3vw;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  padding: 1rem 3vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .project-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-block: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .project {
-    padding: 2rem 2vw;
-    width: 100%;
-    background-color: var(--four);
-    box-shadow: 0px 5px 5px var(--two) inset;
+  padding: max(2.5vw, 2rem) 3vw;
+  width: 100%;
+  background-color: var(--two);
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
 }
 
-.project h3 {
-    padding: 1.5rem;
+.project a {
+  position: relative;
+  z-index: 4;
+  color: var(--five);
+  font-size: var(--default-font);
 }
+
+.project:hover a {
+  color: var(--five);
+}
+
+/* .project:hover h4 {
+  position: relative;
+  z-index: 3;
+} */
 
 /******************* page 2 end *******************************************************************/
 /******************* page 3 start *******************************************************************/
 
 .page-3 {
-    padding: 2vw 3vw;
+  padding: 2vw 3vw;
+  margin-block: 3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-3-heading {
-    padding-block: 3rem;
+  padding-block: 1rem;
 }
 
 .about-sec {
-    width: 100%;
-    height: 80vh;
-    margin-block: 1rem;
-    background-color: var(--four);
-    border-radius: 40px;
-    box-shadow: 0px 5px 5px var(--two) inset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  width: 100%;
+  background-color: var(--two);
+  border-radius: 40px;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-sec::after {
+  content: "";
+  width: 250%;
+  height: 250%;
+  position: absolute;
+  background-color: var(--two);
+  z-index: 1;
+  border-radius: 40px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: var(--transform);
+  rotate: 30deg;
+}
+
+.about-sec:hover::after {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.about-sec::before {
+  content: "";
+  width: 250%;
+  height: 250%;
+  position: absolute;
+  background-color: var(--two);
+  z-index: 1;
+  border-radius: 40px;
+  transform: scaleY(0);
+  rotate: -30deg;
+  transform-origin: top;
+  transition: var(--transform);
+}
+
+.about-sec:hover::before {
+  transform: scaleY(1);
+  transform-origin: bottom;
 }
 
 .about-sec > div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-inline: 3rem;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--two);
 }
 
 .img-container {
-    margin-block: 5rem;
-    width: 25rem;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-}
-
-.img-container .img {
-    background-color: var(--two);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--four);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  align-self: start;
+  box-shadow: var(--shadow-outer);
+  background-color: var(--four);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-desc {
-    width: 35rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .about-desc div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 1.5rem;
-    line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
 }
 
 .about-desc p {
-    position: relative;
+  position: relative;
+  color: var(--three);
+  letter-spacing: 0;
 }
 
 .about-desc p::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: -25px;
-    top: 5px;
-    border-radius: 50%;
-    background-color: var(--three);
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: -25px;
+  top: 4px;
+  border-radius: 50%;
+  background-color: var(--three);
 }
 
 .download-cv {
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: .7rem 1.5rem;
-    border-radius: 40px;
-    color: var(--one);
-    background-color: var(--two);
+  all: unset;
+  font-size: calc(var(--default-font) - 4px);
+  font-weight: 600;
+  border-radius: 40px;
+  color: var(--two);
+  background-color: var(--five);
+  transition: var(--color);
+  box-shadow: var(--shadow-outer);
+  padding: 1rem 1.5rem;
+  letter-spacing: 1px;
 }
 
 /******************* page 3 end *******************************************************************/
 /******************* page 4 start *******************************************************************/
 
 .page-4 {
-    
+  margin-block: 2rem;
 }
 
 .page-4-heading {
-    padding: 2vw 3vw;
+  padding: 1rem 3vw;
 }
 
 .skills-container {
-    width: 100%;
-    padding: 2vw 3vw;
-    padding-bottom: 4rem;
-    display: flex;
-    gap: 4rem;
+  width: 100%;
+  padding: 2vw 3vw;
+  display: flex;
+  gap: 4vw;
+  position: relative;
+  flex-direction: column;
 }
 
 .skills-sec {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.skills-sec div {
-    box-shadow: 0px 5px 5px var(--two) inset;
-    background-color: var(--four);
-    border-radius: 40px;
-    padding: 1.5rem 2rem;
-    font-size: 1rem;
-    color: var(--three);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.skills-sec > div {
+  box-shadow: var(--shadow);
+  background-color: var(--four);
+  border-radius: 40px;
+  padding: 1rem 2rem;
+  font-size: calc(var(--default-font) - 3px);
+  color: var(--three);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.skills-sec div h3 {
+  z-index: 2;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background-color: var(--two);
+  left: -100%;
+  border-radius: 40px;
+  transition: transform 3s;
 }
 
 .preview-sec {
-    box-shadow: 0px 5px 5px var(--two) inset;
-    width: 40%;
-    border-radius: 40px;
-    background-color: var(--four);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.preview-sec div{
-    box-shadow: 0px 5px 5px var(--two) inset;
-    width: 90%;
-    height: 90%;
-    border-radius: 40px;
-    background-color: var(--one);    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  z-index: 3;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(0);
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  background-color: var(--four);
+  box-shadow: var(--shadow-outer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--three);
+  font-size: calc(var(--default-font) + 15px);
+  pointer-events: none;
+  display: none;
 }
 
 /******************* page 4 end *******************************************************************/
 /******************* page 5 start *******************************************************************/
 
 .page-5-container {
-    padding: 2vw 3vw;
+  padding: 2vw 3vw;
 }
 
 .input-container {
-    box-shadow: 0px 5px 5px var(--two) inset;
-    padding: 4vw 6vw;
-    background-color: var(--four);
-    display: flex;
-    gap: 6vw;
-    border-radius: 40px;
+  box-shadow: var(--shadow);
+  padding: 4vw 3vw;
+  background-color: var(--four);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 6vw;
+  border-radius: 40px;
+  transition: var(--color);
 }
 
 .input-container div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 6vw;
 }
 
 .input-container div input,
 .input-container textarea {
-    box-shadow: 0px 5px 5px var(--two) inset;
-    padding: 1.2rem 1.5rem;
-    font-size: 1.5rem;
-    border-radius: 40px;
-    color: #2D6A4F;
-    background-color: var(--one);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.5rem;
+  font-size: calc(var(--default-font) + 3px);
+  border-radius: 40px;
+  color: #2d6a4f;
+  background-color: var(--one);
 }
 
-.input-container > * ,
+.input-container > *,
 .input-container input {
-    flex: 1;
-    width: 100%;
+  flex: 1;
+  width: 100%;
 }
 
 .input-container div button {
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-    border-radius: 40px;
-    background-color: #0d1b2a;
-    color: var(--one);
+  padding: 1rem 1.5rem;
+  font-size: calc(var(--default-font)+3px);
+  border-radius: 40px;
+  background-color: var(--two);
+  color: var(--one);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.input-container textarea,
+.input-container div input {
+  color: var(--three);
+  font-weight: 700;
+  background-color: var(--two);
 }
 
 .input-container textarea::placeholder,
-.input-container div input::placeholder { 
-    color: var(--three);
-    font-weight: 700;
+.input-container div input::placeholder {
+  color: var(--three);
+  font-weight: 700;
+  font-size: calc(var(--default-font) + 4px);
 }
 
 .input-container textarea::-ms-input-placeholder,
 .input-container div input::-ms-input-placeholder {
-    color: var(--three);
-    font-weight: 700;
+  color: var(--three);
+  font-weight: 700;
 }
 
 /******************* page 5 end *******************************************************************/
 /******************* page 6 start *******************************************************************/
 
 .page-6 {
-    padding: 2vw 3vw;
-    display: flex;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
 }
 
 .page-6-heading {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  padding: 1rem 3vw;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .links-sec {
-    display: flex;
-    gap: 2rem;
-    /* font-size: 1.5rem; */
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1rem;
 }
 
-.links-sec div{
-    box-shadow: 0px 5px 5px var(--two) inset;
-    background-color: var(--four);
-    padding: 1rem;
-    border-radius: 50%;
+.links-sec div {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  background-color: var(--four);
+  border-radius: 50%;
+  color: var(--two);
+  transition: var(--color);
+  font-size: var(--default-font);
+  padding: 1.5rem;
 }
 
-.links-sec div a {
-    color: var(--two);
+.links-sec div:hover {
+  background-color: var(--two);
+  color: var(--five);
 }
 
 .page-6-msg {
-    line-height: 1.4;
+  padding: 1rem 3vw;
+  line-height: 1.4;
 }
 
 /******************* page 6 end *******************************************************************/
 /******************* footer start *******************************************************************/
 
 footer {
-    padding: 2vw 3vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    gap: 1rem;
+  padding: 1rem 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
 }
 
 /******************* footer end *******************************************************************/
+
+@media (width > 768px) {
+  .bg-elem-1,
+  .bg-elem-2,
+  .bg-elem-3,
+  .bg-elem-4 {
+    display: block;
+  }
+
+  .cursor, .cursor-tracker-2 {
+    display: block;
+  }
+
+  .hero-div {
+    background-color: var(--four);
+  }
+  .about-sec > div {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  .about-sec {
+    background-color: var(--four);
+  }
+  .about-sec:hover .download-cv {
+    background-color: var(--four);
+    color: var(--two);
+  }
+  .img-container {
+    align-self: start;
+  }
+  .about-desc {
+    width: 35vw;
+  }
+  .page-1-footer {
+    flex-direction: row;
+  }
+  .project {
+    background-color: var(--four);
+  }
+  .project a {
+    color: var(--two);
+  }
+  .project {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project::after {
+    transition: var(--transform);
+    content: "";
+    inset: 0;
+    background-color: var(--two);
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    z-index: 1;
+  }
+
+  .project:hover::after {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  .project::before {
+    transition: var(--transform);
+    content: "";
+    inset: 0;
+    background-color: var(--two);
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    z-index: 1;
+  }
+
+  .project:hover::before {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  .download-cv {
+    color: var(--five);
+    background-color: var(--two);
+  }
+  .skills-sec > div {
+    padding: 1.5rem 2rem;
+  }
+  .skills-sec {
+    gap: 1.5rem;
+  }
+  .preview-sec {
+    display: block;
+  }
+  .input-container {
+    flex-direction: row;
+  }
+  .input-container div {
+    gap: 2rem;
+  }
+  .input-container div input,
+  .input-container textarea {
+    box-shadow: var(--shadow);
+    padding: 1.2rem 1.5rem;
+  }
+  .input-container textarea,
+  .input-container div input {
+    background-color: var(--four);
+  }
+  .page-6 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
