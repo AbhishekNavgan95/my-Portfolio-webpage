@@ -649,7 +649,9 @@ footer {
   .bg-elem-4 {
     display: block;
   }
-
+  .main {
+    position: fixed;
+  }
   .cursor, .cursor-tracker-2 {
     display: block;
   }
