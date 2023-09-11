@@ -113,25 +113,29 @@ function movebgelem() {
   num1 = Math.floor(Math.random() * 30);
   num2 = Math.floor(Math.random() * 70);
   num3 = Math.floor(Math.random() * 110);
-  num4 = Math.floor(Math.random() * 30);
+  num4 = Math.floor(Math.random() * 100);
   elem1.style.transform = `translate(${num3}rem, ${num1}rem)`;
-  elem2.style.transform = `translate(${num3}rem, -${num4}rem)`;
-  elem3.style.transform = `translate(${num1}rem, -${num2}rem)`;
-  elem4.style.transform = `translate(${num1}rem, ${num3}rem)`;
+  elem2.style.transform = `translate(${num3}rem, ${num4}rem)`;
+  elem3.style.transform = `translate(${num4}rem, ${num2}rem)`;
+  elem4.style.transform = `translate(${num4}rem, ${num3}rem)`;
 }
 
 
-let skills = document.querySelectorAll(".skill");
-let preview = document.querySelector(".preview-sec")
-skills.forEach((e) => {
-  e.addEventListener("mouseover", () => {
-    const skillsTitleElement = e.querySelector('.skills-title');
-    const skillsTitleInnerText = skillsTitleElement.innerText;
-    preview.innerText = skillsTitleInnerText
-    preview.style.transform = "translate(-50%, -50%) scaleX(1)";
-  })
-  e.addEventListener("mouseleave", () => {
-    preview.innerText = "";
-    preview.style.transform = "translate(-50%, -50%) scaleX(0)";
-  })
+// let skills = document.querySelectorAll(".skill");
+// let preview = document.querySelector(".preview-sec")
+// skills.forEach((e) => {
+//   e.addEventListener("mouseover", () => {
+//     const skillsTitleElement = e.querySelector('.skills-title');
+//     const skillsTitleInnerText = skillsTitleElement.innerText;
+//     preview.innerText = skillsTitleInnerText
+//     preview.style.transform = "translate(-50%, -50%) scaleX(1)";
+//   })
+//   e.addEventListener("mouseleave", () => {
+//     preview.innerText = "";
+//     preview.style.transform = "translate(-50%, -50%) scaleX(0)";
+//   })
+// })
+
+document.querySelector(".darkmode").addEventListener("click", ()=> {
+  document.body.classList.toggle("dark");
 })
