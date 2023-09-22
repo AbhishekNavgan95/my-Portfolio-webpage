@@ -54,9 +54,35 @@ gsap.from(".page-4", {
   },
 });
 
+// loader elem gsap
+
+let loader = gsap.timeline();
+loader.from(".loader-elem-left", {
+  x: "-100vw",
+  stagger: .3,
+  duration: 1,
+});
+
+loader.from(".loader-elem-right", {
+  x: "100vw",
+  stagger: .3,
+  duration: 1,
+});
+
+loader.to(".loading-screen", {
+  y: "-200vh",
+  rotate: 80,
+  // duration: 2,
+})
+
+loader.from(".page-1", {
+  opacity: 0,
+  duration: .5
+})
+
 // skillsProgress();
 function skillsProgress() {
-  let percentage = [79, 49, 94, 64, 69, 39];
+  let percentage = [79, 64, 39, 94, 74, 79 ];
   let progressPercentage = document.querySelectorAll(".progress-percentage");
   let progressBar = document.querySelectorAll(".progress");
   let i = 0;
@@ -101,41 +127,150 @@ function setTime() {
   document.querySelector(".time").innerHTML = "// " + formattedDate;
 }
 
+// project
+document.querySelector(".project-1").addEventListener('click', function() {
+  const linkURL = 'https://abhisheknavgan95.github.io/Cynthia-Ugwu-Portfolio-Clone/';
+  window.location.href = linkURL;
+});
 
-movebgelem();
-setInterval(movebgelem, 2000);
-function movebgelem() {
-  let elem1 = document.querySelector(".bg-elem-1");
-  let elem2 = document.querySelector(".bg-elem-2");
-  let elem3 = document.querySelector(".bg-elem-3");
-  let elem4 = document.querySelector(".bg-elem-4");
-  let num1, num2;
-  num1 = Math.floor(Math.random() * 30);
-  num2 = Math.floor(Math.random() * 70);
-  num3 = Math.floor(Math.random() * 110);
-  num4 = Math.floor(Math.random() * 100);
-  elem1.style.transform = `translate(${num3}rem, ${num1}rem)`;
-  elem2.style.transform = `translate(${num3}rem, ${num4}rem)`;
-  elem3.style.transform = `translate(${num4}rem, ${num2}rem)`;
-  elem4.style.transform = `translate(${num4}rem, ${num3}rem)`;
-}
+document.querySelector(".project-2").addEventListener('click', function() {
+  const linkURL = 'https://abhisheknavgan95.github.io/Logitech-Clone/';
+  window.location.href = linkURL;
+});
+
+document.querySelector(".project-3").addEventListener('click', function() {
+  const linkURL = 'https://abhisheknavgan95.github.io/Usability-Hub/';
+  window.location.href = linkURL;
+});
+
+document.querySelector(".project-4").addEventListener('click', function() {
+  const linkURL = 'https://abhisheknavgan95.github.io/BookMyShow-Clone/';
+  window.location.href = linkURL;
+});
+document.querySelector(".project-5").addEventListener('click', function() {
+  const linkURL = 'https://pass-generator-by-an.netlify.app/';
+  window.location.href = linkURL;
+});
+document.querySelector(".project-6").addEventListener('click', function() {
+  const linkURL = 'https://awsome-to-do.netlify.app/';
+  window.location.href = linkURL;
+});
+  
+
+// dark mode
+document.querySelector(".dark-mode-btn").addEventListener("click", ()=> {
+    document.body.classList.toggle("dark");
+})
 
 
-// let skills = document.querySelectorAll(".skill");
-// let preview = document.querySelector(".preview-sec")
-// skills.forEach((e) => {
-//   e.addEventListener("mouseover", () => {
-//     const skillsTitleElement = e.querySelector('.skills-title');
-//     const skillsTitleInnerText = skillsTitleElement.innerText;
-//     preview.innerText = skillsTitleInnerText
-//     preview.style.transform = "translate(-50%, -50%) scaleX(1)";
-//   })
-//   e.addEventListener("mouseleave", () => {
-//     preview.innerText = "";
-//     preview.style.transform = "translate(-50%, -50%) scaleX(0)";
-//   })
-// })
+// gsap 
 
-document.querySelector(".darkmode").addEventListener("click", ()=> {
-  document.body.classList.toggle("dark");
+gsap.from(".page-2-heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-2-heading",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+gsap.from(".project", {
+  opacity: 0,
+  duration: 1,
+  stagger: .2,
+  scrollTrigger: {
+    trigger: ".project",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+gsap.from(".skill", {
+  opacity: 0,
+  duration: 1,
+  stagger: .2,
+  scrollTrigger: {
+    trigger: ".skill",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-3-heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-3-heading",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-4-heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-4-heading",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".about-sec", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".about-sec",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-5-heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-5-heading",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-5-container", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-5-container",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-6-heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".page-6-heading",
+    scroller: ".main",
+    start: "top 70%"
+  }
+})
+
+gsap.from(".page-6-msg", {
+  opacity: 0,
+  duration: 1,
+  delay: .2,
+  scrollTrigger: {
+    trigger: ".page-6-msg",
+    scroller: ".main",
+  }
+})
+
+gsap.from(".footer", {
+  opacity: 0,
+  duration: 1,
+  delay: .2,
+  scrollTrigger: {
+    trigger: ".footer",
+    scroller: ".main",
+  }
 })
