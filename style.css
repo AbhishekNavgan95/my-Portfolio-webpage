@@ -790,13 +790,14 @@ footer {
   z-index: 8;
   background-color: var(--one);
   padding: max(2vw,2rem) max(10vw,2rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 5px solid var(--two);
 }
 
 .loading-screen div {
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -806,7 +807,7 @@ footer {
 }
 
 .loader-elem {
-  min-width: max(30%,15rem);
+  width: 100%;
   height: max(10%,5rem);
   border-radius: 40px;
   background-color: var(--two);

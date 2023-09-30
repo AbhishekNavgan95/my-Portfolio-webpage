@@ -57,19 +57,20 @@ gsap.from(".page-4", {
 // loader elem gsap
 
 let loader = gsap.timeline();
-loader.from(".loader-elem-left", {
+gsap.from(".loader-elem-left", {
   x: "-100vw",
   stagger: .3,
   duration: 1,
 });
 
-loader.from(".loader-elem-right", {
+gsap.from(".loader-elem-right", {
   x: "100vw",
   stagger: .3,
   duration: 1,
 });
 
 loader.to(".loading-screen", {
+  delay: 2,
   y: "-200vh",
   rotate: 80,
   // duration: 2,
@@ -153,6 +154,11 @@ document.querySelector(".project-5").addEventListener('click', function() {
 });
 document.querySelector(".project-6").addEventListener('click', function() {
   const linkURL = 'https://awsome-to-do.netlify.app/';
+  window.location.href = linkURL;
+});
+  
+document.querySelector(".project-7").addEventListener('click', function() {
+  const linkURL = 'https://currency-converter-an.netlify.app/';
   window.location.href = linkURL;
 });
   
