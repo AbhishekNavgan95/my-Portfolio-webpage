@@ -225,12 +225,14 @@ nav {
 }
 
 .project-section {
-  display: flex;
-  flex-direction: column;
+  padding: 1rem 3vw;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 .project {
+  border-radius: 20px;
   padding: max(2.5vw, 2rem) 3vw;
   width: 100%;
   background-color: var(--two);
@@ -241,6 +243,7 @@ nav {
   flex-direction: column;
   align-items: start;
   gap: 1rem;
+  overflow: hidden;
 }
 
 .project a {
@@ -249,6 +252,7 @@ nav {
   color: var(--one);
   font-size: var(--default-font);
 }
+
 
 /******************* page 2 end *******************************************************************/
 /******************* page 3 start *******************************************************************/
@@ -699,6 +703,10 @@ footer {
     transform-origin: bottom;
   }
 
+  .project-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .project:hover a {
     color: var(--one);
   }
@@ -712,6 +720,7 @@ footer {
     transform: scaleY(0);
     transform-origin: bottom;
     z-index: 1;
+    border-radius: 20px;
   }
 
   .project:hover::after {
@@ -728,6 +737,7 @@ footer {
     transform: scaleY(0);
     transform-origin: top;
     z-index: 1;
+    border-radius: 20px;
   }
 
   .project:hover::before {
@@ -782,33 +792,25 @@ footer {
   }
 }
 
-
+/* loading */
 .loading-screen {
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: 8;
-  background-color: var(--one);
-  padding: max(2vw,2rem) max(10vw,2rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid var(--two);
-}
-
-.loading-screen div {
-  width: 70%;
-  height: 100%;
+  background-color: #bebebe;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
+  pointer-events: none;
+  gap: 1rem;
 }
 
-.loader-elem {
-  width: 100%;
-  height: max(10%,5rem);
-  border-radius: 40px;
-  background-color: var(--two);
+.loading-screen img {
+  width: 250px;
+}
+
+.loading-screen h2 {
+  text-align: center;
 }
