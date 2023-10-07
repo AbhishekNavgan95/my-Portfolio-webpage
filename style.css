@@ -140,6 +140,14 @@ nav {
   border: 2px solid var(--two);
   padding: 10px;
   border-radius: 50%;
+  transition: var(--color);
+}
+
+.dark-mode-btn:hover {
+  cursor: pointer;
+  background-color: var(--two);
+  color: var(--one);
+  border: 2px solid var(--one);
 }
 
 /* nav end */
@@ -356,6 +364,7 @@ nav {
   padding: 1rem 1.5rem;
   letter-spacing: 1px;
   font-size: calc(var(--default-font) - 4px);
+  border: 2px solid var(--two);
 }
 
 /******************* page 3 end *******************************************************************/
@@ -590,6 +599,7 @@ footer {
   .about-sec:hover .download-cv {
     background-color: var(--one);
     color: var(--two);
+    border: 2px solid var(--two);
   }
 
   .img-container {
@@ -745,44 +755,6 @@ footer {
     transform-origin: bottom;
   }
 
-  .about-sec::after {
-    content: "";
-    width: 250%;
-    height: 250%;
-    position: absolute;
-    background-color: var(--two);
-    z-index: 1;
-    border-radius: 40px;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: var(--transform);
-    rotate: 30deg;
-  }
-
-  .about-sec:hover::after {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-
-  .about-sec::before {
-    content: "";
-    width: 250%;
-    height: 250%;
-    position: absolute;
-    background-color: var(--two);
-    z-index: 1;
-    border-radius: 40px;
-    transform: scaleY(0);
-    rotate: -30deg;
-    transform-origin: top;
-    transition: var(--transform);
-  }
-
-  .about-sec:hover::before {
-    transform: scaleY(1);
-    transform-origin: bottom;
-  }
-
   .links-sec div:hover {
     background-color: var(--two);
   }
@@ -805,10 +777,19 @@ footer {
   align-items: center;
   pointer-events: none;
   gap: 1rem;
+  border: 2px solid var(--two);
+}
+
+.loading-screen div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .loading-screen img {
-  width: 250px;
+  width: 120px;
 }
 
 .loading-screen h2 {

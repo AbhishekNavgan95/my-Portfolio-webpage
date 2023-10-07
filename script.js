@@ -47,41 +47,39 @@ gsap.from(".page-4", {
     trigger: ".skills-sec",
     scroller: ".main",
     start: "top 80%",
-    // markers: true,
     onEnter: function () {
       skillsProgress();
     },
   },
 });
 
-// loader elem gsap
-let loader = gsap.timeline();
-gsap.from(".loader-elem-left", {
-  x: "-100vw",
-  stagger: 0.3,
-  duration: 1,
-});
-
-gsap.from(".loader-elem-right", {
-  x: "100vw",
-  stagger: 0.3,
-  duration: 1,
-});
-
-loader.to(".loading-screen", {
+gsap.to(".loading-screen", {
   delay: 2,
-  opacity: 0,
+  y: "-100vh",
+  duration: 0.5,
 });
 
-loader.from(".page-1", {
+gsap.to(".loader", {
+  rotate: "720deg",
+  duration: 2
+})
+
+setTimeout(()=>{
+  gsap.to(".loader", {
+    rotate: "0deg",
+    duration: 2
+  })
+},2000)
+
+gsap.from(".page-1", {
   opacity: 0,
+  delay: 2.5,
   duration: 0.5,
 });
 
 // skillsProgress();
 function skillsProgress() {
-  let percentage = [79, 64, 39, 94, 74, 79];
-  let progressPercentage = document.querySelectorAll(".progress-percentage");
+  let percentage = [79, 64, 39, 94, 74, 79, 59];
   let progressBar = document.querySelectorAll(".progress");
   let i = 0;
   progressBar.forEach((bar) => {
@@ -111,7 +109,7 @@ setTime();
 
 setInterval(() => {
   setTime();
-}, 60000); // 60,000
+}, 60000);
 
 function setTime() {
   currentDate = new Date();
@@ -160,6 +158,11 @@ document.querySelector(".project-7").addEventListener("click", function () {
   window.location.href = linkURL;
 });
 
+document.querySelector(".project-8").addEventListener("click", function () {
+  const linkURL = "https://abhisheknavgan95.github.io/Spacify-clone/";
+  window.location.href = linkURL;
+});
+
 clickpreview();
 function clickpreview() {
   let click;
@@ -167,13 +170,13 @@ function clickpreview() {
     e.addEventListener("mouseenter", () => {
       gsap.to(e, {
         scale: 1.025,
-        duration: .25
+        duration: 0.25,
       });
     });
     e.addEventListener("mouseleave", () => {
       gsap.to(e, {
-        scale: 1, 
-        duration: .25
+        scale: 1,
+        duration: 0.25,
       });
     });
   });
@@ -182,21 +185,34 @@ function clickpreview() {
 // dark mode
 document.querySelector(".dark-mode-btn").addEventListener("click", () => {
   load();
-})
+});
+
 let load = () => {
-  let loading = document.querySelector(".loading-screen")
-  gsap.to(loading , {
-    opacity: 1,
-    duration: 0.4
+  gsap.to(".loading-screen", {
+    y: "0vh",
+    duration: 0.5,
   });
-  setTimeout(()=> {
-    gsap.to(loading, {
-      opacity: 0,
-      duration: 0.4
-    })
+
+  gsap.to(".loader", {
+    rotate: "360deg",
+    duration: 1,
+    delay: .5
+  });
+
+  setTimeout(() => {
+    gsap.to(".loader", {
+      rotate: "0deg",
+    });
+  }, 1500);
+
+  setTimeout(() => {
+    gsap.to(".loading-screen", {
+      y: "-100vh",
+      duration: 0.5,
+    });
     document.body.classList.toggle("dark");
-  },1000)
-}
+  }, 1000);
+};
 
 // gsap
 gsap.from(".page-2-heading", {
