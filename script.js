@@ -11,6 +11,13 @@ function cursortracker() {
   });
 }
 
+function projectsBg() {
+  let website = document.querySelectorAll('[project="website"]')
+  website.forEach((e) => {
+    e.style.backgroundColor = "red"
+  })
+}
+
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".main"),
   smooth: true,
@@ -139,7 +146,6 @@ document.querySelector(".project-3").addEventListener("click", function () {
   const linkURL = "https://abhisheknavgan95.github.io/Usability-Hub/";
   window.location.href = linkURL;
 });
-
 document.querySelector(".project-4").addEventListener("click", function () {
   const linkURL = "https://abhisheknavgan95.github.io/BookMyShow-Clone/";
   window.location.href = linkURL;
@@ -152,12 +158,14 @@ document.querySelector(".project-6").addEventListener("click", function () {
   const linkURL = "https://awsome-to-do.netlify.app/";
   window.location.href = linkURL;
 });
-
+document.querySelector(".project-9").addEventListener("click", function () {
+  const linkURL = "https://abhisheknavgan95.github.io/Key-Ninja/";
+  window.location.href = linkURL;
+});
 document.querySelector(".project-7").addEventListener("click", function () {
   const linkURL = "https://currency-converter-an.netlify.app/";
   window.location.href = linkURL;
 });
-
 document.querySelector(".project-8").addEventListener("click", function () {
   const linkURL = "https://abhisheknavgan95.github.io/Spacify-clone/";
   window.location.href = linkURL;
