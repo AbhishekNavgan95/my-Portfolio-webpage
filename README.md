@@ -23,7 +23,7 @@ I've incorporated interactive elements using HTML, CSS, and JS, including two JS
 
 ## Feedback
 
-I value your feedback! If you have suggestions or improvements, or if you just want to share your thoughts, please don't hesitate to [create an issue](https://github.com/your-username/Tech-Portfolio/issues). Your input is highly appreciated!
+I value your feedback! If you have suggestions or improvements, or if you just want to share your thoughts, please don't hesitate to [create an issue](https://github.com/AbhishekNavgan95/my-Portfolio-webpage/issues/new). Your input is highly appreciated!
 
 ## Contact
 
